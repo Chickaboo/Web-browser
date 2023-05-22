@@ -1,9 +1,8 @@
-import json
 import sys
 from PyQt5.QtCore import QUrl, QDir
 from PyQt5.QtWidgets import QApplication, QMainWindow, QLineEdit, QHBoxLayout, QVBoxLayout, QWidget, QPushButton, QToolBar, QTabWidget, QDialog, QLabel, QComboBox, QFileDialog
 from PyQt5.QtWebEngineWidgets import QWebEngineView, QWebEnginePage, QWebEngineProfile
-
+import json
 
 class WebEnginePage(QWebEnginePage):
     def __init__(self, parent=None):
@@ -97,21 +96,19 @@ class SearchEngine(QMainWindow):
 
         self.setCentralWidget(central_widget)
 
-        self.setStyleSheet("""
-    @import url(style.css);
-""")
-
+        self.load_search_engines()  # Load search engines from configuration file
         self.add_new_tab()
         self.load_home()
 
-        # Load search engines from configuration file
+    def load_search_engines(self):
         with open('search_engines.json') as f:
             self.search_engines = json.load(f)
+
 
     def get_search_engine_url(self):
         default_engine = "Google"  # Default to Google if search engine is not recognized
         return self.search_engines.get(self.search_engine, self.search_engines.get(default_engine))
-
+    
     def add_new_tab(self):
         web_view = QWebEngineView()
         web_view.page().setUrl(QUrl(self.get_search_engine_url()))
@@ -163,18 +160,6 @@ class SearchEngine(QMainWindow):
         if dialog.exec_() == QDialog.Accepted:
             self.search_engine = dialog.get_selected_search_engine()
             self.load_home()
-
-    def get_search_engine_url(self):
-        if self.search_engine == "Google":
-            return "https://www.google.com"
-        elif self.search_engine == "Bing":
-            return "https://www.bing.com"
-        elif self.search_engine == "Yahoo":
-            return "https://www.yahoo.com"
-        elif self.search_engine == "DuckDuckGo":
-            return "https://duckduckgo.com"
-        else:
-            return "https://www.google.com"  # Default to Google if search engine is not recognized
 
     def download_page(self):
         current_web_view = self.tab_widget.currentWidget()
