@@ -1,3 +1,4 @@
+import json
 import sys
 from PyQt5.QtCore import QUrl, QDir
 from PyQt5.QtWidgets import QApplication, QMainWindow, QLineEdit, QHBoxLayout, QVBoxLayout, QWidget, QPushButton, QToolBar, QTabWidget, QDialog, QLabel, QComboBox, QFileDialog
@@ -135,6 +136,14 @@ class SearchEngine(QMainWindow):
         self.add_new_tab()
         self.load_home()
 
+        # Load search engines from configuration file
+        with open('search_engines.json') as f:
+            self.search_engines = json.load(f)
+
+    def get_search_engine_url(self):
+        default_engine = "Google"  # Default to Google if search engine is not recognized
+        return self.search_engines.get(self.search_engine, self.search_engines.get(default_engine))
+
     def add_new_tab(self):
         web_view = QWebEngineView()
         web_view.page().setUrl(QUrl(self.get_search_engine_url()))
@@ -226,10 +235,12 @@ class SettingsDialog(QDialog):
 
         search_engine_label = QLabel("Search Engine:")
         self.search_engine_combobox = QComboBox()
-        self.search_engine_combobox.addItem("Google")
-        self.search_engine_combobox.addItem("Bing")
-        self.search_engine_combobox.addItem("Yahoo")
-        self.search_engine_combobox.addItem("DuckDuckGo")
+
+        # Load search engines from configuration file and populate the combobox
+        with open('search_engines.json') as f:
+            search_engines = json.load(f)
+            self.search_engine_combobox.addItems(search_engines.keys())
+
         self.search_engine_combobox.setCurrentText(current_search_engine)
 
         clear_data_button = QPushButton("Clear Cookies and Data")
@@ -257,7 +268,6 @@ class SettingsDialog(QDialog):
         profile = QWebEngineProfile.defaultProfile()
         profile.clearAllVisitedLinks()
         profile.cookieStore().deleteAllCookies()
-
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
