@@ -98,40 +98,8 @@ class SearchEngine(QMainWindow):
         self.setCentralWidget(central_widget)
 
         self.setStyleSheet("""
-            QMainWindow {
-                background-color: #ffffff;
-            }
-
-            QToolBar {
-                background-color: #f2f2f2;
-                border-bottom: 1px solid #d0d0d0;
-                padding: 5px;
-            }
-
-            QWidget#ToolbarWidget {
-                spacing: 10px;
-            }
-
-            QPushButton#NavigationButton, #ActionButton, #NewTabButton {
-                padding: 5px 10px;
-                font-size: 14px;
-                border: none;
-                background-color: #f2f2f2;
-                color: #333333;
-            }
-
-            QPushButton#NavigationButton:hover, #ActionButton:hover, #NewTabButton:hover {
-                background-color: #e0e0e0;
-            }
-
-            #SearchBar {
-                padding: 5px;
-                font-size: 14px;
-                border: 1px solid #d0d0d0;
-                border-radius: 5px;
-                background-color: #ffffff;
-            }
-        """)
+    @import url(style.css);
+""")
 
         self.add_new_tab()
         self.load_home()
