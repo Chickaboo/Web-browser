@@ -33,33 +33,4 @@ For future updates I have many plans such adding support for downloading files. 
 
 </p>
 
-<h1 align="center">
-  <br>
-  <br>
-  Web-browser
-  <br>
-</h1>
-<p align="center">
-  <a href="https://github.com/Chickaboo/[your-project-link](https://github.com/Chickaboo/Web-browser)">
-    <img src="https://img.shields.io/github/license/Chickaboo/Web-browser?color=blue" alt="License">
-  </a>
-  <a href="https://github.com/Chickaboo/[your-project-link](https://github.com/Chickaboo/Web-browser)">
-    <img src="https://img.shields.io/github/stars/Chickaboo/Web-browser?color=green" alt="Stars">
-  </a>
-  <a href="https://github.com/Chickaboo/https://github.com/Chickaboo/Web-browser">
-    <img src="https://img.shields.io/github/forks/Chickaboo/Web-browser?color=orange" alt="Forks">
-  </a>
-</p>
-
-<p align="center">
-  <strong>Chickaboo Software hatch a new experience</strong>
-  <br>
-
-<br>
-
-  </a>
-  <a href="https://github.com/Chickaboo/Web-browser">
-    <img src="https://img.shields.io/badge/Web%20browser%20Download-brightgreen" alt="Download">
-  </a>
-
 ![Logo](https://github.com/Chickaboo/Web-browser/assets/131608268/92fee69a-fbec-4a97-8bb7-7db6b1f2c75d)
