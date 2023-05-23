@@ -3,8 +3,12 @@
   <img src="https://img.shields.io/badge/Python-v3.7%2B-blue">
 
   <img src="https://komarev.com/ghpvc/?username=Chickaboo&label=Views&color=blue&style=plastic">
+  
+  [![Open README Website](https://img.shields.io/badge/Open-README%20Website-blue)](https://chickaboo.github.io/Web-browser)
+
 
 </p>
+
 
 # About Chicken Web-browser
 
