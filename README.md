@@ -2,7 +2,7 @@
 
   <img src="https://img.shields.io/badge/Python-v3.7%2B-blue">
 
-  <img src="https://komarev.com/ghpvc/?username=Chickaboo-X&label=Views&color=blue&style=plastic">
+  <img src="https://komarev.com/ghpvc/?username=Chickaboo&label=Views&color=blue&style=plastic">
 
 </p>
 
