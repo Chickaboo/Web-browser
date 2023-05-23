@@ -4,7 +4,7 @@
 
   <img src="https://komarev.com/ghpvc/?username=Chickaboo&label=Views&color=blue&style=plastic">
   
-  [![Open README Website](https://img.shields.io/badge/Open-README%20Website-blue)](https://chickaboo.github.io/Web-browser)
+  [![Open README Website](https://img.shields.io/badge/Open-README%20Website-blue)](https://chickaboo.github.io/Webbrowser)
 
 
 </p>
