@@ -14,7 +14,9 @@ This is a web-browser written in Python. It offers several features, such as dow
 
 If you would like to clone and run this repository you can run the Command 
 
+```
 !git clone https://github.com/Chickaboo/Web-browser
+```
 
 after that run main.py and you are all set.
 If you do not have Git installed on your PC you can instead install the repository as a ZIP file extract it and then run the main.py.
