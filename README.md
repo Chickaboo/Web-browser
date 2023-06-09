@@ -1,3 +1,7 @@
+[![Discord Server](https://img.shields.io/badge/Join-Discord%20Server-blue?logo=discord)](https://discord.gg/pF7FgHxY)
+
+
+
 <p align="center">
 
   <img src="https://img.shields.io/badge/Python-v3.7%2B-blue">
