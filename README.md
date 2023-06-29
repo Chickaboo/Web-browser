@@ -38,7 +38,7 @@ If you would like to change the search engine you can go in the setting select t
 
 # What is planned for the future
 
-For future updates I have many plans such adding support for downloading files. with that I would probably make or intigrate an exsting antivirus with it to make sure you are not downloading something malicious. I also may add more customization features, user profiles, Improved error handling, multicore threadingand other performance related thing, and bookmarks.
+For future updates I have many plans such adding a download manager. with that I would probably make or intigrate an exsting antivirus with it to make sure you are not downloading something malicious. I also may add more customization features, user profiles, Improved error handling, multicore threadingand other performance related thing, and bookmarks.
 
 # Feel free to make suggestions For future updates. Any ideas/code contributions are much appreciated. 
 
