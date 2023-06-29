@@ -1,5 +1,5 @@
 from PyQt5.QtCore import QUrl, QDir
-from PyQt5.QtWidgets import QMainWindow, QLineEdit, QHBoxLayout, QVBoxLayout, QWidget, QPushButton, QToolBar, QTabWidget
+from PyQt5.QtWidgets import QMainWindow, QLineEdit, QHBoxLayout, QVBoxLayout, QWidget, QPushButton, QToolBar, QTabWidget, QFileDialog, QDialog
 from PyQt5.QtWebEngineWidgets import QWebEngineView, QWebEnginePage
 from settings_dialog import SettingsDialog
 import json
