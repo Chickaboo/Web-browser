@@ -29,7 +29,7 @@ If you would like to clone and run this repository you can run the Command
 after that run main.py and you are all set.
 If you do not have Git installed on your PC you can instead install the repository as a ZIP file extract it and then run the main.py. Before running if you do not have pyqt5 installed you can do
 ```
-!pip install pyqt5
+!pip install pyqt5, PyQtWebEngine
 ```
 
 # How to change search engine
