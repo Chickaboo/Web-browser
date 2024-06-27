@@ -36,12 +36,11 @@ If you do not have Git installed on your PC you can instead install the reposito
 
 If you would like to change the search engine you can go in the setting select the search engine that you would like to use and click save. If your desired search engine it not there you can add it to search_engines.json and it should show up in the settings.
 
-# What is planned for the future
-
-For future updates I have many plans such adding a download manager. with that I would probably make or intigrate an exsting antivirus with it to make sure you are not downloading something malicious. I also may add more customization features, user profiles, Improved error handling, multicore threadingand other performance related thing, and bookmarks.
-
+# Sneek peek on new update
+![Python 3 11 6_26_2024 10_42_30 PM](https://github.com/Chickaboo/Web-browser/assets/131608268/7090e50e-9c1f-4ade-9c70-bac8c5c14580)
 # Feel free to make suggestions For future updates. Any ideas/code contributions are much appreciated. 
 
 </p>
+
 
 ![Logo](https://github.com/Chickaboo/Web-browser/assets/131608268/92fee69a-fbec-4a97-8bb7-7db6b1f2c75d)
