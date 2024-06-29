@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Tab</title>
+    <style>
+        :root {
+            --bg-color: #f5f5f5;
+            --text-color: #333;
+            --input-bg-color: #eee;
+            --input-text-color: #333;
+            --input-placeholder-color: #999;
+            --button-bg-color: #007bff;
+            --button-text-color: #fff;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #222;
+                --text-color: #fff;
+                --input-bg-color: #444;
+                --input-text-color: #eee;
+                --input-placeholder-color: #777;
+                --button-bg-color: #007bff;
+                --button-text-color: #fff;
+            }
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            transition: background-color 0.5s;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+        }
+
+        #search-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #logo {
+            width: 30%;
+            height: auto;
+        }
+
+        #search-bar {
+            width: 50%;
+            padding: 12px;
+            font-size: 18px;
+            background-color: var(--input-bg-color);
+            color: var(--input-text-color);
+            border: none;
+            border-radius: 25px;
+            transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            outline: none;
+        }
+
+        #search-bar::placeholder {
+            color: var(--input-placeholder-color);
+        }
+
+        #search-bar:focus {
+            background-color: #fff;
+            color: #333;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        #search-button {
+            background-color: var(--button-bg-color);
+            color: var(--button-text-color);
+            border: none;
+            border-radius: 25px;
+            padding: 12px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #search-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="search-container">
+        <img id="logo" src="assets/WlogoNB.png" alt="Google Logo" width="100">
+        <input type="text" id="search-bar" placeholder="Search Google or type a web address"
+            onkeyup="checkSubmit(event)">
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const theme = urlParams.get('theme') || 'light';
+
+        function checkSubmit(event) {
+            if (event.key === "Enter") {
+                performSearch();
+            }
+        }
+
+        function performSearch() {
+            const searchTerm = document.getElementById("search-bar").value;
+            if (searchTerm) {
+                window.location.href = `https://google.com/search?q=${encodeURIComponent(searchTerm)}`;
+            }
+        }
+
+        if (theme === 'dark') {
+            document.documentElement.style.setProperty('--bg-color', '#222');
+            document.documentElement.style.setProperty('--text-color', '#fff');
+            document.documentElement.style.setProperty('--input-bg-color', '#444');
+            document.documentElement.style.setProperty('--input-text-color', '#eee');
+            document.documentElement.style.setProperty('--input-placeholder-color', '#777');
+            document.documentElement.style.setProperty('--button-bg-color', '#007bff');
+            document.documentElement.style.setProperty('--button-text-color', '#fff');
+        }
+    </script>
+</body>
+
+</html>

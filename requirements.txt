@@ -1,0 +1,7 @@
+PyQt5
+json
+urllib
+os
+sys
+qtawesome
+PyQt5.QtWebEngine
