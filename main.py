@@ -34,6 +34,7 @@ from PyQt5.QtWebEngineWidgets import QWebEngineView, QWebEnginePage, QWebEngineP
 from PyQt5.QtGui import QKeySequence, QIcon, QDesktopServices, QPixmap, QPalette, QColor
 from qtawesome import icon
 
+
 class DownloadThread(QThread):
     progress_update = pyqtSignal(int)
     finished = pyqtSignal()
@@ -70,7 +71,7 @@ class SettingsDialog(QDialog):
         super().__init__()
 
         self.setWindowTitle("Settings")
-        self.setWindowIcon(icon("fa.cog")) 
+        self.setWindowIcon(icon("fa.cog"))
 
         layout = QVBoxLayout()
 
@@ -171,7 +172,7 @@ class SearchEngine(QMainWindow):
         self.forward_button.clicked.connect(self.navigate_forward)
 
         self.home_button = QToolButton()
-        self.home_button.setIcon(icon("fa.home"))  
+        self.home_button.setIcon(icon("fa.home"))
         self.home_button.setToolTip("Go Home")
         self.home_button.clicked.connect(self.load_home)
 
@@ -302,50 +303,50 @@ class SearchEngine(QMainWindow):
             palette.setColor(QPalette.Highlight, QColor(42, 130, 218))
             palette.setColor(QPalette.HighlightedText, Qt.black)
             app.setPalette(palette)
-            self.setStyleSheet("""
-                QMainWindow {
-                    background-color: #353535;
-                    color: #ffffff;
-                }
-                QToolBar {
-                    background-color: #444444;
-                }
-                QTabWidget::pane {
-                    border: 1px solid #444444;
-                }
-                QTabBar::tab {
-                    background: #555555;
-                    border: 1px solid #444444;
-                    padding: 5px;
-                    border-radius: 3px;
-                    transition: background 0.3s ease;
-                }
-                QTabBar::tab:selected {
-                    background: #777777;
-                }
-                QLineEdit {
-                    background: #555555;
-                    color: #ffffff;
-                    border: 1px solid #777777;
-                    border-radius: 3px;
-                    padding: 5px;
-                }
-                QToolButton {
-                    background: #444444;
-                    color: #ffffff;
-                    border: none;
-                    padding: 5px;
-                    border-radius: 3px;
-                    transition: background 0.3s ease;
-                }
-                QToolButton:hover {
-                    background: #555555;
-                }
-                QListWidget {
-                    background: #353535;
-                    color: #ffffff;
-                }
-            """)
+            self.setStyleSheet(
+                """
+            QMainWindow {
+                background-color: #353535;
+                color: #ffffff;
+            }
+            QToolBar {
+                background-color: #444444;
+            }
+            QTabWidget::pane {
+                border: 1px solid #444444;
+            }
+            QTabBar::tab {
+                background: #555555;
+                border: 1px solid #444444;
+                padding: 5px;
+                border-radius: 3px;
+            }
+            QTabBar::tab:selected {
+                background: #777777;
+            }
+            QLineEdit {
+                background: #555555;
+                color: #ffffff;
+                border: 1px solid #777777;
+                border-radius: 3px;
+                padding: 5px;
+            }
+            QToolButton {
+                background: #444444;
+                color: #ffffff;
+                border: none;
+                padding: 5px;
+                border-radius: 3px;
+            }
+            QToolButton:hover {
+                background: #555555;
+            }
+            QListWidget {
+                background: #353535;
+                color: #ffffff;
+            }
+        """
+            )
         elif theme == "Light":
             app.setStyle("Fusion")
             palette = QPalette()
@@ -363,50 +364,50 @@ class SearchEngine(QMainWindow):
             palette.setColor(QPalette.Highlight, QColor(42, 130, 218))
             palette.setColor(QPalette.HighlightedText, Qt.white)
             app.setPalette(palette)
-            self.setStyleSheet("""
-                QMainWindow {
-                    background-color: #f0f0f0;
-                    color: #000000;
-                }
-                QToolBar {
-                    background-color: #e0e0e0;
-                }
-                QTabWidget::pane {
-                    border: 1px solid #e0e0e0;
-                }
-                QTabBar::tab {
-                    background: #d0d0d0;
-                    border: 1px solid #e0e0e0;
-                    padding: 5px;
-                    border-radius: 3px;
-                    transition: background 0.3s ease;
-                }
-                QTabBar::tab:selected {
-                    background: #c0c0c0;
-                }
-                QLineEdit {
-                    background: #ffffff;
-                    color: #000000;
-                    border: 1px solid #cccccc;
-                    border-radius: 3px;
-                    padding: 5px;
-                }
-                QToolButton {
-                    background: #e0e0e0;
-                    color: #000000;
-                    border: none;
-                    padding: 5px;
-                    border-radius: 3px;
-                    transition: background 0.3s ease;
-                }
-                QToolButton:hover {
-                    background: #d0d0d0;
-                }
-                QListWidget {
-                    background: #f0f0f0;
-                    color: #000000;
-                }
-            """)
+            self.setStyleSheet(
+                """
+            QMainWindow {
+                background-color: #f0f0f0;
+                color: #000000;
+            }
+            QToolBar {
+                background-color: #e0e0e0;
+            }
+            QTabWidget::pane {
+                border: 1px solid #e0e0e0;
+            }
+            QTabBar::tab {
+                background: #d0d0d0;
+                border: 1px solid #e0e0e0;
+                padding: 5px;
+                border-radius: 3px;
+            }
+            QTabBar::tab:selected {
+                background: #c0c0c0;
+            }
+            QLineEdit {
+                background: #ffffff;
+                color: #000000;
+                border: 1px solid #cccccc;
+                border-radius: 3px;
+                padding: 5px;
+            }
+            QToolButton {
+                background: #e0e0e0;
+                color: #000000;
+                border: none;
+                padding: 5px;
+                border-radius: 3px;
+            }
+            QToolButton:hover {
+                background: #d0d0d0;
+            }
+            QListWidget {
+                background: #f0f0f0;
+                color: #000000;
+            }
+        """
+            )
 
     def remove_bookmark(self):
         selected_items = self.bookmark_list.selectedItems()
@@ -589,7 +590,6 @@ class SearchEngine(QMainWindow):
         bookmark_url = item.text().split("(")[1].split(")")[0]
         self.add_new_tab(bookmark_url)
 
-
     def remove_bookmark(self):
         selected_items = self.bookmark_list.selectedItems()
         if selected_items:
@@ -606,7 +606,6 @@ class SearchEngine(QMainWindow):
         homepage_url.setQuery(f"theme={self.current_theme}")
         current_web_view.page().setUrl(homepage_url)
         self.address_bar.setText("Home")  # Set the address bar text to "Home"
-
 
 
 if __name__ == "__main__":
