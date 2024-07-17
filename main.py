@@ -129,7 +129,6 @@ class SettingsDialog(QDialog):
 class WebEnginePage(QWebEnginePage):
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.home_url = "https://www.google.com"
 
     def set_url(self, url):
         self.load(QUrl(url))
@@ -146,9 +145,12 @@ class WebEnginePage(QWebEnginePage):
 class SearchEngine(QMainWindow):
     def __init__(self):
         super().__init__()
+        self.home_url = QUrl.fromLocalFile(os.path.join(os.path.dirname(__file__), "homepage.html"))
         self.setWindowTitle("Chicken Web-Browser V2")
         self.setWindowIcon(QIcon("assets/browser.png"))
+        
         self.resize(1200, 800)
+        
         self.web_views = []
 
         self.tab_widget = QTabWidget()
@@ -424,12 +426,27 @@ class SearchEngine(QMainWindow):
 
     def add_new_tab(self, url=None):
         web_view = QWebEngineView()
+        web_view.setPage(WebEnginePage(web_view))
+
+        if url is None:
+            url = self.home_url  # Use the homepage file URL when url is None
+        elif isinstance(url, str):
+            url = QUrl(url)  # Ensure url is a QUrl object if it's a string
+        elif isinstance(url, bool):
+            url = self.home_url  # If url is a bool (False), revert to homepage URL
+        elif not isinstance(url, QUrl):
+            raise ValueError("Invalid URL type")
+
+        # Debug statements
+        print(f"url: {url}, type: {type(url)}")
+
+        web_view.setUrl(url)  # Set the URL for the new tab
+        web_view.titleChanged.connect(self.update_tab_title)  # Connect titleChanged signal
+
+        index = self.tab_widget.addTab(web_view, "New Tab")
+        self.tab_widget.setCurrentIndex(index)
         self.web_views.append(web_view)
-
-        web_view.page().urlChanged.connect(self.update_address_bar)
-
-        tab_index = self.tab_widget.addTab(web_view, "New Tab")
-        self.tab_widget.setCurrentIndex(tab_index)
+        web_view.urlChanged.connect(self.update_address_bar)
 
     def close_tab(self, index):
         if self.tab_widget.count() > 1:
@@ -550,12 +567,11 @@ class SearchEngine(QMainWindow):
         current_url = current_web_view.page().url().toString()
         self.add_new_tab(current_url)
 
-    def update_tab_title(self, index):
-        current_web_view = self.tab_widget.widget(index)
-        current_title = current_web_view.page().title()
-        self.tab_widget.setTabText(
-            index, current_title if current_title else "Untitled"
-        )
+    def update_tab_title(self, title):
+        sender_web_view = self.sender()  # Get the sender QWebEngineView
+        current_index = self.tab_widget.indexOf(sender_web_view)  # Get index of sender in tab_widget
+        if current_index != -1:
+            self.tab_widget.setTabText(current_index, title)  # Set tab text to page title
 
     def show_bookmark_dock(self):
         self.bookmark_dock.show()
